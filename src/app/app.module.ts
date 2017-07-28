@@ -8,9 +8,11 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { HeaderModule } from "./header/header.module";
 import { FooterModule } from "./footer/footer.module";
 import { HomeModule } from "./home/home.module";
+import { AdminModule } from "./admin/admin.module";
 
 import { AppComponent } from './app.component';
 
+// import { AdminRouting } from "./admin/admin.routing";
 import { HomeRouting } from "./home/home.routing";
 
 @NgModule({
@@ -23,6 +25,8 @@ import { HomeRouting } from "./home/home.routing";
     HomeModule,
     HeaderModule,
     FooterModule,
+    AdminModule,
+    // AdminRouting,
     HomeRouting
   ],
   providers: [],
