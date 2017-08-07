@@ -1,6 +1,6 @@
 .footer{
-    background-color: #14609A;
-    height: 50px;
+    /* background-color: #14609A; */
+    height: 55px;
     position: absolute;
     z-index: 1000;
     width: 100%;
@@ -16,4 +16,22 @@
     color: white;
     border-radius: 5px;
     padding: 10px;    
+}
+
+.footer-line{
+    background-image: url('../../assets/images/border_innerline.png');
+    height: 5px;
+    background-repeat: repeat-x;
+    margin-left: 23px;
+    margin-right: 23px;
+}
+
+.inner-left{
+    float: left;
+    left: 0px;
+}
+
+.inner-right{
+    float: right;
+    right: 0px;
 }

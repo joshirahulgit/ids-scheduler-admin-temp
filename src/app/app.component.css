@@ -1,7 +1,7 @@
 .main-body{
     position: absolute;
-    top: 110px;
+    top: 70px;
     overflow: auto;
     width: 100%;
-    bottom:50px;
+    bottom:55px;
 }

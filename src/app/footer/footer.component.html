@@ -1,5 +1,13 @@
 <div class="footer">
-    <button *ngFor="let command of commands" type="button" (click)="command.onClick()"  class="footer-button">{{command.name}}</button>
+    <div class="inner-left">
+        <img src="../../assets/images/border_inner_left.png" alt="">
+    </div>
+    <div class="inner-right">
+        <img src="../../assets/images/border_inner_right.png" alt="">
+    </div>
+    <div class="footer-line">
+        <button *ngFor="let command of commands" type="button" (click)="command.onClick()" class="footer-button">{{command.name}}</button>
+    </div>
     <!-- <button type="button" class="footer-button">Test 3</button>
     <button type="button" class="footer-button">Test 2</button>
     <button type="button" class="footer-button">Test 1</button> -->

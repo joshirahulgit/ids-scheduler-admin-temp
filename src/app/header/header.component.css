@@ -1,10 +1,20 @@
 .header{
-    background-color: #14609A;
-    height: 110px;
+    background-image: url("../../assets/images/Header_BG.png");
+    background-repeat: repeat-x; 
+    height: 70px;
     position: absolute;
     z-index: 1000;
     width: 100%;
     top: 0px;
+}
+
+.logo-container{
+    float: right;
+}
+
+.logo{
+    /* margin-bottom: 4px; */
+    margin-top: 16px;
 }
 
 /* Dropdown Button */
