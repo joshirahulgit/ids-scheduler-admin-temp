@@ -1,10 +1,10 @@
 <md-sidenav-container>
     <md-sidenav mode="side" opened="true">
-        <md-list>
-            <md-list-item *ngFor="let configItem of configItems">
-                <a [routerLink]="['enum-value', configItem.code]">{{configItem.name}}</a>
-            </md-list-item>
-        </md-list>
+        <a *ngFor="let configItem of configItems" class="list-group-item" [routerLink]="['enum-value', configItem.code]">
+            <i class="fa fa-cog fa-fw" aria-hidden="true"></i>&nbsp; 
+            {{configItem.name}}
+        </a>
+
         <!-- <ul class="list-group">
             <li class="list-group-item">
                 <a routerLink="./account-settings">Account Settings</a>

@@ -4,9 +4,6 @@ import { Component } from "@angular/core";
     selector: 'admin',
     templateUrl: './admin.component.html',
     styles: [`
-        md-sidenav {
-            width: 200px;
-        }
         md-sidenav-container {
             width: 100%;
             height: 100%;
