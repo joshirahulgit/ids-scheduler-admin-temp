@@ -3,5 +3,6 @@
     top: 70px;
     overflow: auto;
     width: 100%;
-    bottom:55px;
+    height: 100%-(70px+55px);
+    bottom: 55px;
 }

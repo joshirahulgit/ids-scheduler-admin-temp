@@ -1,4 +1,7 @@
+import 'hammerjs';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { MaterialComponentModule } from "./material-component.module";
 import { NgModule } from '@angular/core';
 
 //Bootstrap imports
@@ -9,10 +12,10 @@ import { HeaderModule } from "./header/header.module";
 import { FooterModule } from "./footer/footer.module";
 import { HomeModule } from "./home/home.module";
 import { AdminModule } from "./admin/admin.module";
+import { ServiceModule } from "./services/service.module";
 
 import { AppComponent } from './app.component';
 
-// import { AdminRouting } from "./admin/admin.routing";
 import { HomeRouting } from "./home/home.routing";
 
 @NgModule({
@@ -21,15 +24,18 @@ import { HomeRouting } from "./home/home.routing";
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
+    MaterialComponentModule,
+    ServiceModule,
     NgbModule.forRoot(),
     HomeModule,
     HeaderModule,
     FooterModule,
     AdminModule,
-    // AdminRouting,
     HomeRouting
   ],
-  providers: [],
+  providers: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

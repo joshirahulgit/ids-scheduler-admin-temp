@@ -1,4 +1,5 @@
 import { NgModule } from "@angular/core";
+import { MaterialComponentModule } from "../material-component.module";
 import { CommonModule } from "@angular/common";
 import { RouterModule } from "@angular/router";
 
@@ -29,6 +30,7 @@ import { EnumValueConfigComponent } from "./enum-value-config/enum-value-config.
     ],
     imports: [
         CommonModule,
+        MaterialComponentModule,
         RouterModule.forChild(adminRoutes)
     ],
     exports: [

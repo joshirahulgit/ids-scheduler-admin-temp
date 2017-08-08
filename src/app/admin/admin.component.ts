@@ -2,7 +2,21 @@ import { Component } from "@angular/core";
 
 @Component({
     selector: 'admin',
-    templateUrl: './admin.component.html'
+    templateUrl: './admin.component.html',
+    styles: [`
+        md-sidenav {
+            width: 200px;
+        }
+        md-sidenav-container {
+            width: 100%;
+            height: 100%;
+        }
+
+        .md-sidenav-content {
+            height: 100%;
+            width: 100%;
+        }
+    `]
 })
 export class AdminComponent {
 
