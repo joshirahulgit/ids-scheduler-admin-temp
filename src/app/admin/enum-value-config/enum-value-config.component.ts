@@ -3,6 +3,8 @@ import { ActivatedRoute } from "@angular/router";
 import { ISubscription } from "rxjs/Subscription";
 import { AdminService } from "../../services/admin.service";
 import { DataSource } from "@angular/cdk";
+import { EnumValueConfigAddComponent } from "./enum-value-config-add.component";
+import { MdDialog } from "@angular/material";
 
 @Component({
     selector: 'enum-value-component',
@@ -15,8 +17,17 @@ export class EnumValueConfigComponent implements OnInit, OnDestroy {
     items=[];//: DataSource<any> = null;
 
     private _routeSubscription: ISubscription;
+    
+    selectedOption: string;
 
-    constructor(private _route: ActivatedRoute, private _service: AdminService) {
+    openDialog() {
+        let dialogRef = this.dialog.open(EnumValueConfigAddComponent);
+        dialogRef.afterClosed().subscribe(result => {
+            this.selectedOption = result;
+        });
+    }
+
+    constructor(private _route: ActivatedRoute, private _service: AdminService, public dialog: MdDialog) {
         // this.items=new DataSource();
     }
 

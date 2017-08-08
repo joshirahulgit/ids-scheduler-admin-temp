@@ -14,6 +14,7 @@ import { ModalitiesComponent } from "./modalities/modalities.component";
 import { ProviderRoleComponent } from "./provider-role/provider-role.component";
 import { ProvidersComponent } from "./providers/providers.component";
 import { EnumValueConfigComponent } from "./enum-value-config/enum-value-config.component";
+import { EnumValueConfigAddComponent } from "./enum-value-config/enum-value-config-add.component";
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { EnumValueConfigComponent } from "./enum-value-config/enum-value-config.
         ModalitiesComponent,
         ProviderRoleComponent,
         ProvidersComponent,
-        EnumValueConfigComponent
+        EnumValueConfigComponent,
+        EnumValueConfigAddComponent
     ],
     imports: [
         CommonModule,
@@ -35,6 +37,9 @@ import { EnumValueConfigComponent } from "./enum-value-config/enum-value-config.
     ],
     exports: [
         RouterModule
+    ],
+    bootstrap:[
+        EnumValueConfigAddComponent
     ]
 })
 export class AdminModule {

@@ -2,19 +2,22 @@ import { NgModule } from "@angular/core";
 import {
     MdSidenavModule,
     MdListModule,
-    MdTableModule
+    MdTableModule,
+    MdDialogModule
 } from "@angular/material";
 
 @NgModule({
     imports: [
         MdSidenavModule,
         MdListModule,
-        MdTableModule
+        MdTableModule,
+        MdDialogModule
     ],
     exports: [
         MdSidenavModule,
         MdListModule,
-        MdTableModule
+        MdTableModule,
+        MdDialogModule
     ]
 })
 export class MaterialComponentModule {
