@@ -6,14 +6,19 @@ import { DataSource } from "@angular/cdk";
 import { EnumValueConfigAddComponent } from "./enum-value-config-add.component";
 import { MdDialog } from "@angular/material";
 import { AccountEnumDto } from "app/dtos/AccountEnum.dto";
+import { Command, CommandType } from "app/core/Command";
 
 @Component({
     selector: 'enum-value-component',
-    templateUrl: 'enum-value-config.html'
+    templateUrl: 'enum-value-config.component.html'
 })
 export class EnumValueConfigComponent implements OnInit, OnDestroy {
 
     group: string = '';
+
+    commands: Array<Command> = [];
+
+    private addCommand: Command;
 
     items: Array<AccountEnumDto> = null;//: DataSource<any> = null;
 
@@ -21,11 +26,23 @@ export class EnumValueConfigComponent implements OnInit, OnDestroy {
 
     selectedOption: string;
 
-    constructor(private _route: ActivatedRoute, private _service: AdminService, public dialog: MdDialog) {
+    constructor(private _route: ActivatedRoute,
+        private _service: AdminService,
+        public dialog: MdDialog) {
         // this.items=new DataSource();
+        this.initializeCommands();
     }
 
-    openDialog() {
+    initializeCommands(): void {
+        this.addCommand = new Command("Add New", this.OnAddCommandCall.bind(this), CommandType.Add);
+        this.commands.push(this.addCommand);
+    }
+
+    OnAddCommandCall(): void {
+        this.openDialog();
+    };
+
+    openDialog(): void {
         let dialogRef = this.dialog.open(EnumValueConfigAddComponent);
         // dialogRef.disableClose = true;
         dialogRef.afterClosed().subscribe(result => {
@@ -44,8 +61,6 @@ export class EnumValueConfigComponent implements OnInit, OnDestroy {
         dialogRef.afterClosed().subscribe(result => {
 
             console.log(result);
-            // if (result == 'true') {
-            // }
         });
     }
 
@@ -53,7 +68,6 @@ export class EnumValueConfigComponent implements OnInit, OnDestroy {
         this._routeSubscription = this._route.params.subscribe(params => {
             this.group = params['group'];
             let request = this._service.getEnumTypeValues(this.group).subscribe(res => {
-                // console.log(res.json().AccountEnums);
                 request.unsubscribe();
                 let accountEnums: Array<AccountEnumDto> = new Array();
 
@@ -62,10 +76,6 @@ export class EnumValueConfigComponent implements OnInit, OnDestroy {
                 });
 
                 this.items = accountEnums;
-                // res.json().forEach(element => {
-                //     this.items.push(element);
-                // });;
-
             });
         });
     }

@@ -1,0 +1,27 @@
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item active" *ngFor="let command of commands" (click)="command.onClick()">
+            <button class="btn btn-sm btn-outline-primary my-2 my-sm-0" type="submit">
+                <i class="fa fa-plus fa-fw"></i> {{command.name}}
+            </button>
+        </li>
+    </ul>
+</nav>
+
+<!-- <div class="bg-command">
+    <ul class="icons-ul">
+        <li class="icon-li icon-ok m-1 p-1 bg-transparent" >
+
+        </li>
+    </ul>
+</div> -->
+
+<!-- <div class="">
+    <button *ngFor="let command of commands" type="button" (click)="command.onClick()" class="btn btn-sm pull-left ml-1 mt-1 mb-1">
+        <i class="fa fa-add fa-fw"></i>
+        {{command.name}}
+    </button>
+    <ul class="nav nav-pills">
+
+    </ul>
+</div> -->

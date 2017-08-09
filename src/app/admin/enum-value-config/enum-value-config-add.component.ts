@@ -12,7 +12,7 @@ import { AdminService } from "app/services/admin.service";
 
 @Component({
     selector: 'enum-value-config-add',
-    templateUrl: 'enum-value-config-add.html'
+    templateUrl: 'enum-value-config-add.component.html'
 })
 export class EnumValueConfigAddComponent implements OnInit, OnDestroy {
     formSubscription: ISubscription;

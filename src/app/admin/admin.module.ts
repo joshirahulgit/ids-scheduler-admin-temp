@@ -16,6 +16,7 @@ import { ProvidersComponent } from "./providers/providers.component";
 import { EnumValueConfigComponent } from "./enum-value-config/enum-value-config.component";
 import { EnumValueConfigAddComponent } from "./enum-value-config/enum-value-config-add.component";
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
+import { CommonComponentModule } from "app/common-components/common-componets.module";
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { ReactiveFormsModule, FormsModule } from "@angular/forms";
         MaterialComponentModule,
         // FormsModule,
         ReactiveFormsModule,
-        RouterModule.forChild(adminRoutes)
+        RouterModule.forChild(adminRoutes),
+        CommonComponentModule,
     ],
     exports: [
         RouterModule
