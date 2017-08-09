@@ -1,9 +1,19 @@
 <md-sidenav-container>
-    <md-sidenav mode="side" opened="true">
-        <a *ngFor="let configItem of configItems" class="list-group-item" [routerLink]="['enum-value', configItem.code]">
-            <i class="fa fa-cog fa-fw" aria-hidden="true"></i>&nbsp; 
-            {{configItem.name}}
-        </a>
+    <md-sidenav mode="side" opened="true" style="width:15rem;">
+        <div class="text-primary ml-2" (click)="enumValueSetting.hidden=!enumValueSetting.hidden" aria-expanded="false" aria-controls="collapseExample">
+            <strong>Enum Value Settings 
+                    <i *ngIf="!enumValueSetting.hidden" class="fa fa-angle-down pull-right fa-vc mr-2" aria-hidden="true"></i>
+                    <i *ngIf="enumValueSetting.hidden" class="fa fa-angle-down fa-rotate-270 fa-vc pull-right mr-2" aria-hidden="true"></i>
+            </strong>
+        </div>
+        <ul #enumValueSetting class="fa-ul ml-1" hidden>
+            <li *ngFor="let configItem of configItems">
+                <a [routerLink]="['enum-value', configItem.code]">
+                    <i class="fa fa-cog fa-fw" aria-hidden="true"></i>&nbsp; {{configItem.name}}
+                </a>
+            </li>
+        </ul>
+        
 
         <!-- <ul class="list-group">
             <li class="list-group-item">
