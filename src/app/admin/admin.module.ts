@@ -15,6 +15,7 @@ import { ProviderRoleComponent } from "./provider-role/provider-role.component";
 import { ProvidersComponent } from "./providers/providers.component";
 import { EnumValueConfigComponent } from "./enum-value-config/enum-value-config.component";
 import { EnumValueConfigAddComponent } from "./enum-value-config/enum-value-config-add.component";
+import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 
 
 @NgModule({
@@ -33,6 +34,8 @@ import { EnumValueConfigAddComponent } from "./enum-value-config/enum-value-conf
     imports: [
         CommonModule,
         MaterialComponentModule,
+        // FormsModule,
+        ReactiveFormsModule,
         RouterModule.forChild(adminRoutes)
     ],
     exports: [

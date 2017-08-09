@@ -3,7 +3,8 @@ import {
     MdSidenavModule,
     MdListModule,
     MdTableModule,
-    MdDialogModule
+    MdDialogModule,
+    MdInputModule
 } from "@angular/material";
 
 @NgModule({
@@ -11,13 +12,15 @@ import {
         MdSidenavModule,
         MdListModule,
         MdTableModule,
-        MdDialogModule
+        MdDialogModule,
+        MdInputModule
     ],
     exports: [
         MdSidenavModule,
         MdListModule,
         MdTableModule,
-        MdDialogModule
+        MdDialogModule,
+        MdInputModule
     ]
 })
 export class MaterialComponentModule {

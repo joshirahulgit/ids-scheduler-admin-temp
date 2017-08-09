@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MaterialComponentModule } from "./material-component.module";
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 
 //Bootstrap imports
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
@@ -26,6 +27,8 @@ import { HomeRouting } from "./home/home.routing";
     BrowserModule,
     BrowserAnimationsModule,
     MaterialComponentModule,
+    FormsModule,
+    ReactiveFormsModule,
     ServiceModule,
     NgbModule.forRoot(),
     HomeModule,

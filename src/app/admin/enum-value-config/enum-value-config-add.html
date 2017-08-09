@@ -1,6 +1,41 @@
-<h1 md-dialog-title>Dialog</h1>
-<div md-dialog-content>What would you like to do?</div>
-<div md-dialog-actions>
-  <button md-button md-dialog-close="Option 1">Option 1</button>
-  <button md-button md-dialog-close="Option 2">Option 2</button>
+<h1 md-dialog-title class="text-primary">Add Enum Value</h1>
+<div md-dialog-content>
+  <!-- <div class="row"> -->
+  <form class="row" autocomplete="off" [formGroup]="form">
+    <div class="col-6">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input id="name" type="text" class="form-control" formControlName="name">
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="form-group">
+        <label for="value">Value</label>
+        <input id="value" type="text" class="form-control" formControlName="value">
+      </div>
+    </div>
+  </form>
+  <div class="alert alert-danger">
+    {{errorMsg}}
+  </div>
+  <!-- </div> -->
+  <!-- <div class="row">
+    <md-input-container class="col-6" floatPlaceholder="never">
+      <label>Name</label>
+      <input mdInput [(value)]="accountEnum.name">
+    </md-input-container>
+    <md-input-container class="col-6" floatPlaceholder="never">
+      <label>Value</label>
+      <input mdInput [(value)]="accountEnum.value">
+    </md-input-container>
+  </div> -->
+</div>
+<div class="pull-right mt-3" md-dialog-actions>
+  <button class="btn btn-sm btn-danger mr-2" md-button (click)="onCancelClick()">
+     <!-- md-dialog-close="accountEnum" -->
+    <i class="fa fa-window-close fa-fw" aria-hidden="true"></i>
+    Cancel</button>
+  <button class="btn btn-sm btn-primary" md-button (click)="onSaveClick()">
+    <i class="fa fa-floppy-o fa-fw" aria-hidden="true"></i>    
+    Save</button>
 </div>
