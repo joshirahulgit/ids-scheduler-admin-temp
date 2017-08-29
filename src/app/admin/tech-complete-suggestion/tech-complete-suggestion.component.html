@@ -1,0 +1,38 @@
+<h1>Tech Complete Suggestion List</h1>
+
+
+<action-bar [commands]="commands"></action-bar>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Display Name
+            </th>
+            <th>
+                Is Visible
+            </th>
+            <th>
+                Actions
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let techCompleteSuggestion of techCompleteSuggestions">
+            <td>
+                {{techCompleteSuggestion.displayName}}
+            </td>
+            <td>
+                <switch [(isOn)]="techCompleteSuggestion.isVisible" onCaption="On" offCaption="Off"></switch>
+                <!-- <input type="checkbox" checked data-toggle="toggle" data-onstyle="primary"> -->
+                <!-- <div class="btn-group btn-group-sm" role="group" aria-label="Visibility">
+                    <button type="button" class="btn btn-secondary">On</button>
+                    <button type="button" class="btn btn-secondary">Off</button>
+                </div> -->
+                <!-- {{techCompleteSuggestion.isVisible}} -->
+            </td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+</table>

@@ -1,5 +1,81 @@
 <md-sidenav-container>
     <md-sidenav mode="side" opened="true" style="width:15rem;">
+        
+        <div class="text-primary ml-2" (click)="mainSetting.hidden=!mainSetting.hidden" aria-expanded="false" aria-controls="collapseExample">
+            <strong>Main Settings 
+                    <i *ngIf="!mainSetting.hidden" class="fa fa-angle-down pull-right fa-vc mr-2" aria-hidden="true"></i>
+                    <i *ngIf="mainSetting.hidden" class="fa fa-angle-down fa-rotate-270 fa-vc pull-right mr-2" aria-hidden="true"></i>
+            </strong>
+        </div>
+        <ul #mainSetting class="fa-ul ml-1" hidden>
+            <li>
+                <a routerLink="./account-settings"><i class="fa fa-cog fa-fw" aria-hidden="true"></i>&nbsp;Account Settings</a>
+            </li>
+            <li>
+                <a routerLink="./appointment-statuses"><i class="fa fa-cog fa-fw" aria-hidden="true"></i>&nbsp;Appointment Statuses</a>
+            </li>
+            <li>
+                <a routerLink="./general"><i class="fa fa-cog fa-fw" aria-hidden="true"></i>&nbsp;General</a>
+            </li>
+            <li>
+                <a routerLink="./modalities"><i class="fa fa-cog fa-fw" aria-hidden="true"></i>&nbsp;Modalities</a>
+            </li>
+            <li>
+                <a routerLink="./provider-role"><i class="fa fa-cog fa-fw" aria-hidden="true"></i>&nbsp;Provider Role</a>
+            </li>
+            <li>
+                <a routerLink="./providers"><i class="fa fa-cog fa-fw" aria-hidden="true"></i>&nbsp;Providers</a>
+            </li>
+            <li>
+                <a routerLink="./"><i class="fa fa-cog fa-fw" aria-hidden="true"></i>&nbsp;Priority List</a>
+            </li>
+            <li>
+                <a routerLink="./"><i class="fa fa-cog fa-fw" aria-hidden="true"></i>&nbsp;Schedule By List</a>
+            </li>
+            <li>
+                <a routerLink="./"><i class="fa fa-cog fa-fw" aria-hidden="true"></i>&nbsp;Authorization User Statuses</a>
+            </li>
+            <li>
+                <a routerLink="./"><i class="fa fa-cog fa-fw" aria-hidden="true"></i>&nbsp;Local Procedures</a>
+            </li>
+            <li>
+                <a routerLink="./"><i class="fa fa-cog fa-fw" aria-hidden="true"></i>&nbsp;Local Diagnoses</a>
+            </li>
+            <li>
+                <a routerLink="./"><i class="fa fa-cog fa-fw" aria-hidden="true"></i>&nbsp;Payer Eligibility Verification Crosswalk</a>
+            </li>
+            <li>
+                <a routerLink="./"><i class="fa fa-cog fa-fw" aria-hidden="true"></i>&nbsp;Filters</a>
+            </li>
+            <li>
+                <a routerLink="./"><i class="fa fa-cog fa-fw" aria-hidden="true"></i>&nbsp;Exceptions</a>
+            </li>
+            <li>
+                <a routerLink="./"><i class="fa fa-cog fa-fw" aria-hidden="true"></i>&nbsp;Notification Slots</a>
+            </li>
+            <li>
+                <a routerLink="./"><i class="fa fa-cog fa-fw" aria-hidden="true"></i>&nbsp;Comment Types</a>
+            </li>
+            <li>
+                <a routerLink="./volume-unit"><i class="fa fa-cog fa-fw" aria-hidden="true"></i>&nbsp;Volume Units</a>
+            </li>
+            <li>
+                <a routerLink="./"><i class="fa fa-cog fa-fw" aria-hidden="true"></i>&nbsp;Referal Specialities</a>
+            </li>
+            <li>
+                <a routerLink="./"><i class="fa fa-cog fa-fw" aria-hidden="true"></i>&nbsp;Id's Configuration</a>
+            </li>
+            <li>
+                <a routerLink="./"><i class="fa fa-cog fa-fw" aria-hidden="true"></i>&nbsp;Audit</a>
+            </li>
+            <li>
+                <a routerLink="./"><i class="fa fa-cog fa-fw" aria-hidden="true"></i>&nbsp;Authorization</a>
+            </li>
+            <li>
+                <a routerLink="./tech-complete-suggestion"><i class="fa fa-cog fa-fw" aria-hidden="true"></i>&nbsp;Task Complete Suggestion List</a>
+            </li>
+        </ul>
+
         <div class="text-primary ml-2" (click)="enumValueSetting.hidden=!enumValueSetting.hidden" aria-expanded="false" aria-controls="collapseExample">
             <strong>Enum Value Settings 
                     <i *ngIf="!enumValueSetting.hidden" class="fa fa-angle-down pull-right fa-vc mr-2" aria-hidden="true"></i>
@@ -16,29 +92,10 @@
         
 
         <!-- <ul class="list-group">
-            <li class="list-group-item">
-                <a routerLink="./account-settings">Account Settings</a>
-            </li>
-            <li class="list-group-item">
-                <a routerLink="./appointment-statuses">Appointment Statuses</a>
-            </li>
-            <li class="list-group-item">
-                <a routerLink="./general">General</a>
-            </li>
-            <li class="list-group-item">
-                <a routerLink="./modalities">Modalities</a>
-            </li>
-            <li class="list-group-item">
-                <a routerLink="./provider-role">Provider Role</a>
-            </li>
-            <li class="list-group-item">
-                <a routerLink="./providers">Providers</a>
-            </li>
-            <li class="list-group-item" >
-            </li>
+            
         </ul> -->
     </md-sidenav>
-    <div class="md-sidenav-content">
+    <div class="md-sidenav-content ml-4">
         <router-outlet></router-outlet>
     </div>
 </md-sidenav-container>

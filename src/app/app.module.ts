@@ -16,12 +16,23 @@ import { AdminModule } from "./admin/admin.module";
 import { ServiceModule } from "./services/service.module";
 
 import { AppComponent } from './app.component';
+import { RouterModule } from "@angular/router";
 
-import { HomeRouting } from "./home/home.routing";
+import { LoginComponent } from "./login/login.component";
+import { AuthenticationService } from "app/services/authentication.service";
+import { AuthGuard } from "app/auth-guard.service";
+import { IdsHttpReqOpt } from "app/services/ids-http-request-options.helper";
+
+// import { HomeRouting } from "./home/home.routing";
+
+const AppRouting = RouterModule.forRoot([
+  { path: "login", component: LoginComponent }
+]);
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -31,13 +42,17 @@ import { HomeRouting } from "./home/home.routing";
     ReactiveFormsModule,
     ServiceModule,
     NgbModule.forRoot(),
-    HomeModule,
     HeaderModule,
     FooterModule,
     AdminModule,
-    HomeRouting
+    HomeModule,
+    AppRouting
+    // HomeRouting
   ],
   providers: [
+    IdsHttpReqOpt,
+    AuthenticationService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

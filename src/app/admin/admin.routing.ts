@@ -11,24 +11,6 @@ import { ModalitiesComponent } from "./modalities/modalities.component";
 import { ProviderRoleComponent } from "./provider-role/provider-role.component";
 import { ProvidersComponent } from "./providers/providers.component";
 import { EnumValueConfigComponent } from "./enum-value-config/enum-value-config.component";
+import { TechCompleteSuggestionComponent } from "./tech-complete-suggestion/tech-complete-suggestion.component";
+import { VolumeUnitComponent } from "./volume-unit/volume-unit.component";
 
-export const adminRoutes: Routes = [
-    {
-        path: 'admin',
-        component: AdminComponent,
-        children: [
-            {
-                path: '',
-                children: [
-                    { path: 'account-settings', component: AccountSettingsComponent },
-                    { path: 'appointment-statuses', component: AppointmentStatusesComponent },
-                    { path: 'general', component: GeneralComponent },
-                    { path: 'modalities', component: ModalitiesComponent },
-                    { path: 'provider-role', component: ProviderRoleComponent },
-                    { path: 'providers', component: ProvidersComponent },
-                    { path: 'enum-value/:group', component: EnumValueConfigComponent }
-                ],
-            }
-        ]
-    }
-];
