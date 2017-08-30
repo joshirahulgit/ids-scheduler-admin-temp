@@ -20,6 +20,8 @@ import { CommonComponentModule } from "app/common-components/common-componets.mo
 import { TechCompleteSuggestionComponent } from "./tech-complete-suggestion/tech-complete-suggestion.component";
 import { VolumeUnitComponent } from "./volume-unit/volume-unit.component";
 import { AuthGuard } from "app/auth-guard.service";
+import { CommentTypeComponent } from "./comment-type/comment-type.component";
+import { Hex2RgbaPipe } from "app/pipes/hex2rgba.pipe";
 
 const AdminRoutes = RouterModule.forChild([
     {
@@ -38,6 +40,7 @@ const AdminRoutes = RouterModule.forChild([
                     { path: 'enum-value/:group', component: EnumValueConfigComponent },
                     { path: 'tech-complete-suggestion', component: TechCompleteSuggestionComponent },
                     { path: 'volume-unit', component: VolumeUnitComponent },
+                    { path: 'comment-type', component: CommentTypeComponent },
                 ],
             }
         ],
@@ -48,6 +51,7 @@ const AdminRoutes = RouterModule.forChild([
 
 @NgModule({
     declarations: [
+        Hex2RgbaPipe,
         AdminComponent,
         DashboardComponent,
         AccountSettingsComponent,
@@ -59,7 +63,8 @@ const AdminRoutes = RouterModule.forChild([
         EnumValueConfigComponent,
         EnumValueConfigAddComponent,
         TechCompleteSuggestionComponent,
-        VolumeUnitComponent
+        VolumeUnitComponent,
+        CommentTypeComponent
     ],
     imports: [
         CommonModule,

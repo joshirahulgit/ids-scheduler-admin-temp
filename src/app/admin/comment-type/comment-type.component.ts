@@ -1,17 +1,17 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
-import { PhysicianTypeDto } from "app/dtos/PhysicianType.dto";
+import { CommentTypeDto } from "app/dtos/CommentType.dto";
 import { Command, CommandType } from "app/core/Command";
 import { ActivatedRoute } from "@angular/router";
 import { AdminService } from "app/services/admin.service";
 import { MdDialog } from "@angular/material";
 
 @Component({
-    selector: 'provider-role',
-    templateUrl: 'provider-role.component.html'
+    selector: 'comment-type',
+    templateUrl: 'comment-type.component.html'
 })
-export class ProviderRoleComponent implements OnInit, OnDestroy {
+export class CommentTypeComponent implements OnInit, OnDestroy {
 
-    physicianTypes: Array<PhysicianTypeDto> = [];
+    commentTypes: Array<CommentTypeDto> = [];
 
     commands: Array<Command> = [];
 
@@ -38,9 +38,9 @@ export class ProviderRoleComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit(): void {
-        let subscription = this._service.getProviderRoles().subscribe(result => {
+        let subscription = this._service.getCommentTypes().subscribe(result => {
             subscription.unsubscribe();
-            this.physicianTypes = result;
+            this.commentTypes = result;
         }, err => {
             subscription.unsubscribe();
             console.log(err);

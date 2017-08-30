@@ -17,12 +17,12 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let techCompleteSuggestion of techCompleteSuggestions">
+        <tr *ngFor="let volumeUnit of volumeUnits">
             <td>
-                {{techCompleteSuggestion.displayName}}
+                {{volumeUnit.displayName}}
             </td>
             <td>
-                <switch [(isOn)]="techCompleteSuggestion.isVisible" onCaption="On" offCaption="Off"></switch>
+                <switch [(isOn)]="volumeUnit.isVisible" onCaption="On" offCaption="Off"></switch>
                 <!-- <input type="checkbox" checked data-toggle="toggle" data-onstyle="primary"> -->
                 <!-- <div class="btn-group btn-group-sm" role="group" aria-label="Visibility">
                     <button type="button" class="btn btn-secondary">On</button>

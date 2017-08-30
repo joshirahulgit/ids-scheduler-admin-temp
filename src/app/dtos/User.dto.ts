@@ -9,6 +9,8 @@
 
 import { AccountDto } from "app/dtos/Account.dto";
 import { TaskDto } from "app/dtos/Task.dto";
+import { EntityTypeDto, IEntityTypeDto } from "app/dtos/EntityType.dto";
+import { CommentTypeDto } from "app/dtos/CommentType.dto";
 
 export class UserDto implements IUserDto {
     id: number;
@@ -131,90 +133,6 @@ export enum DayOfWeek {
     Thursday = 4,
     Friday = 5,
     Saturday = 6,
-}
-
-
-export class EntityTypeDto implements IEntityTypeDto {
-    typeId: number;
-    typeName?: string;
-    isVisible: boolean;
-    isSystem: boolean;
-    text?: string;
-
-    constructor(data?: IEntityTypeDto) {
-        if (data) {
-            for (var property in data) {
-                if (data.hasOwnProperty(property))
-                    (<any>this)[property] = (<any>data)[property];
-            }
-        }
-    }
-
-    init(data?: any) {
-        if (data) {
-            this.typeId = data["TypeId"];
-            this.typeName = data["TypeName"];
-            this.isVisible = data["IsVisible"];
-            this.isSystem = data["IsSystem"];
-            this.text = data["Text"];
-        }
-    }
-
-    static fromJS(data: any): EntityTypeDto {
-        let result = new EntityTypeDto();
-        result.init(data);
-        return result;
-    }
-
-    toJSON(data?: any) {
-        data = typeof data === 'object' ? data : {};
-        data["TypeId"] = this.typeId;
-        data["TypeName"] = this.typeName;
-        data["IsVisible"] = this.isVisible;
-        data["IsSystem"] = this.isSystem;
-        data["Text"] = this.text;
-        return data;
-    }
-}
-
-export interface IEntityTypeDto {
-    typeId: number;
-    typeName?: string;
-    isVisible: boolean;
-    isSystem: boolean;
-    text?: string;
-}
-
-export class PhysicianTypeDto extends EntityTypeDto implements IPhysicianTypeDto {
-    color?: string;
-
-    constructor(data?: IPhysicianTypeDto) {
-        super(data);
-    }
-
-    init(data?: any) {
-        super.init(data);
-        if (data) {
-            this.color = data["Color"];
-        }
-    }
-
-    static fromJS(data: any): PhysicianTypeDto {
-        let result = new PhysicianTypeDto();
-        result.init(data);
-        return result;
-    }
-
-    toJSON(data?: any) {
-        data = typeof data === 'object' ? data : {};
-        data["Color"] = this.color;
-        super.toJSON(data);
-        return data;
-    }
-}
-
-export interface IPhysicianTypeDto extends IEntityTypeDto {
-    color?: string;
 }
 
 export enum ReservationViewMode {
@@ -469,42 +387,6 @@ export interface IAppointmentResourceDto {
     displayText?: string;
 }
 
-export class CommentTypeDto extends EntityTypeDto implements ICommentTypeDto {
-    isDeleted: boolean;
-    cannedCommentEnumType?: string;
-
-    constructor(data?: ICommentTypeDto) {
-        super(data);
-    }
-
-    init(data?: any) {
-        super.init(data);
-        if (data) {
-            this.isDeleted = data["IsDeleted"];
-            this.cannedCommentEnumType = data["CannedCommentEnumType"];
-        }
-    }
-
-    static fromJS(data: any): CommentTypeDto {
-        let result = new CommentTypeDto();
-        result.init(data);
-        return result;
-    }
-
-    toJSON(data?: any) {
-        data = typeof data === 'object' ? data : {};
-        data["IsDeleted"] = this.isDeleted;
-        data["CannedCommentEnumType"] = this.cannedCommentEnumType;
-        super.toJSON(data);
-        return data;
-    }
-}
-
-export interface ICommentTypeDto extends IEntityTypeDto {
-    isDeleted: boolean;
-    cannedCommentEnumType?: string;
-}
-
 export class PhysicianSpecialitiesDto extends DtoBase implements IPhysicianSpecialitiesDto {
     physicianSpecialities?: PhysicianSpecialityDto[];
 
@@ -588,91 +470,6 @@ export interface IPhysicianSpecialityDto extends IDtoBase {
     isVisible: boolean;
     isDeleted: boolean;
 }
-
-export class VolumeUnitsDto extends DtoBase implements IVolumeUnitsDto {
-    volumeUnits?: VolumeUnitDto[];
-
-    constructor(data?: IVolumeUnitsDto) {
-        super(data);
-    }
-
-    init(data?: any) {
-        super.init(data);
-        if (data) {
-            if (data["VolumeUnits"] && data["VolumeUnits"].constructor === Array) {
-                this.volumeUnits = [];
-                for (let item of data["VolumeUnits"])
-                    this.volumeUnits.push(VolumeUnitDto.fromJS(item));
-            }
-        }
-    }
-
-    static fromJS(data: any): VolumeUnitsDto {
-        let result = new VolumeUnitsDto();
-        result.init(data);
-        return result;
-    }
-
-    toJSON(data?: any) {
-        data = typeof data === 'object' ? data : {};
-        if (this.volumeUnits && this.volumeUnits.constructor === Array) {
-            data["VolumeUnits"] = [];
-            for (let item of this.volumeUnits)
-                data["VolumeUnits"].push(item.toJSON());
-        }
-        super.toJSON(data);
-        return data;
-    }
-}
-
-export interface IVolumeUnitsDto extends IDtoBase {
-    volumeUnits?: VolumeUnitDto[];
-}
-
-export class VolumeUnitDto extends DtoBase implements IVolumeUnitDto {
-    id: number;
-    displayName?: string;
-    isVisible: boolean;
-    isDeleted: boolean;
-
-    constructor(data?: IVolumeUnitDto) {
-        super(data);
-    }
-
-    init(data?: any) {
-        super.init(data);
-        if (data) {
-            this.id = data["Id"];
-            this.displayName = data["DisplayName"];
-            this.isVisible = data["IsVisible"];
-            this.isDeleted = data["IsDeleted"];
-        }
-    }
-
-    static fromJS(data: any): VolumeUnitDto {
-        let result = new VolumeUnitDto();
-        result.init(data);
-        return result;
-    }
-
-    toJSON(data?: any) {
-        data = typeof data === 'object' ? data : {};
-        data["Id"] = this.id;
-        data["DisplayName"] = this.displayName;
-        data["IsVisible"] = this.isVisible;
-        data["IsDeleted"] = this.isDeleted;
-        super.toJSON(data);
-        return data;
-    }
-}
-
-export interface IVolumeUnitDto extends IDtoBase {
-    id: number;
-    displayName?: string;
-    isVisible: boolean;
-    isDeleted: boolean;
-}
-
 
 export class UserProfileDto implements IUserProfileDto {
     commentDefaults?: UserProfileCommentDto;

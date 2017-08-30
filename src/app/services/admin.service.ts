@@ -8,11 +8,14 @@ import "rxjs/add/operator/catch";
 import 'rxjs/Rx';
 import { ServiceResponse } from "app/services/service-response";
 import { IdsHttpReqOpt } from "app/services/ids-http-request-options.helper";
+import { VolumeUnitDto } from "app/dtos/VolumeUnit.dto";
+import { CommentTypeDto } from "app/dtos/CommentType.dto";
+import { PhysicianTypeDto } from "app/dtos/PhysicianType.dto";
 
 @Injectable()
 export class AdminService {
 
-    private baseUrl = environment.apiUrlBase;
+    // private baseUrl = environment.apiUrlBase;
     // private url = 'http://localhost:1337/api/Account?enumType=';
 
     constructor(private _http: Http, private _reqOpt: IdsHttpReqOpt) {
@@ -20,9 +23,9 @@ export class AdminService {
     }
 
     public getTechCompleteSuggestions(): Observable<Array<TechCompleteSuggestionListDto>> {
-        let url = this.baseUrl + "TechCompleteSuggestion";
+        let url = this._reqOpt.baseUrl + "TechCompleteSuggestion";
 
-        let req = this._http.get(url,this._reqOpt.get());
+        let req = this._http.get(url, this._reqOpt.get());
 
         return req.map((res: Response) => {
             if (res.status != 200)
@@ -51,14 +54,49 @@ export class AdminService {
     }
 
     public getEnumTypeValues(type: string): Observable<Response> {
-        let url = this.baseUrl + "AccountEnum?enumType=";
+        let url = this._reqOpt.baseUrl + "AccountEnum?enumType=";
         return this._http.get(url + type, this._reqOpt.get());
     }
 
     public saveEnumTypeValue(accountEnumDto: AccountEnumDto): Observable<Response> {
 
-        let url = this.baseUrl + "AccountEnum";
+        let url = this._reqOpt.baseUrl + "AccountEnum";
         return this._http.post(url, JSON.stringify(accountEnumDto.toJSON()),
-         this._reqOpt.post());
+            this._reqOpt.post());
+    }
+
+    public getVolumeUnits(): Observable<Array<VolumeUnitDto>> {
+        let url = this._reqOpt.baseUrl + "VolumeUnit";
+
+        return this._http.get(url, this._reqOpt.get()).map((res: Response) => {
+            let items = new Array<VolumeUnitDto>();
+            res.json().forEach(element => {
+                items.push(VolumeUnitDto.fromJS(element));
+            });
+            return items;
+        });
+    }
+
+    public getCommentTypes(): Observable<Array<CommentTypeDto>> {
+        let url = this._reqOpt.baseUrl + "CommentType";
+
+        return this._http.get(url, this._reqOpt.get()).map((res: Response) => {
+            let items = new Array<CommentTypeDto>();
+            res.json().forEach(element => {
+                items.push(CommentTypeDto.fromJS(element));
+            });
+            return items;
+        });
+    }
+
+    public getProviderRoles(): Observable<Array<PhysicianTypeDto>> {
+        let url = this._reqOpt.baseUrl + "PhysicianType";
+        return this._http.get(url, this._reqOpt.get()).map((req: Response) => {
+            let items = new Array<PhysicianTypeDto>();
+            req.json().forEach(element => {
+                items.push(PhysicianTypeDto.fromJS(element));
+            });
+            return items;
+        });
     }
 }

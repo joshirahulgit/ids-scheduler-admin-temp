@@ -1,4 +1,4 @@
-<h1>Provider Roles</h1>
+<h1>Comment Type</h1>
 
 
 <action-bar [commands]="commands"></action-bar>
@@ -6,10 +6,10 @@
     <thead>
         <tr>
             <th>
-                Provider Type
+                Display Name
             </th>
             <th>
-                Provider Color
+                Is Visible
             </th>
             <th>
                 Actions
@@ -17,15 +17,12 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let physicianType of physicianTypes">
+        <tr *ngFor="let commentType of commentTypes">
             <td>
-                {{physicianType.typeName}}
+                {{commentType.typeName}}
             </td>
             <td>
-                <div style="width: 12rem">
-                    <div class="mr-2" style="width: 5rem; height: 2rem; float: left" [style.background-color]="physicianType.color | hex2rgba"></div>
-                    {{physicianType.color}}
-                </div>
+                <switch [(isOn)]="commentType.isVisible" onCaption="On" offCaption="Off"></switch>
                 <!-- <input type="checkbox" checked data-toggle="toggle" data-onstyle="primary"> -->
                 <!-- <div class="btn-group btn-group-sm" role="group" aria-label="Visibility">
                     <button type="button" class="btn btn-secondary">On</button>
