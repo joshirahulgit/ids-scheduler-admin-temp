@@ -22,6 +22,9 @@ import { VolumeUnitComponent } from "./volume-unit/volume-unit.component";
 import { AuthGuard } from "app/auth-guard.service";
 import { CommentTypeComponent } from "./comment-type/comment-type.component";
 import { Hex2RgbaPipe } from "app/pipes/hex2rgba.pipe";
+import { LocalDiagnosesComponent } from "app/admin/local-diagnoses/local-diagnoses.component";
+import { LocalProceduresComponent } from "app/admin/local-procedures/local-procedures.component";
+import { AuthorizationUserStatusesComponent } from "app/admin/authorization-user-statuses/authorization-user-statuses.component";
 
 const AdminRoutes = RouterModule.forChild([
     {
@@ -41,6 +44,9 @@ const AdminRoutes = RouterModule.forChild([
                     { path: 'tech-complete-suggestion', component: TechCompleteSuggestionComponent },
                     { path: 'volume-unit', component: VolumeUnitComponent },
                     { path: 'comment-type', component: CommentTypeComponent },
+                    { path: 'local-diagnoses', component: LocalDiagnosesComponent },
+                    { path: 'local-procedures', component: LocalProceduresComponent },
+                    { path: 'authorization-user-statuses', component: AuthorizationUserStatusesComponent },
                 ],
             }
         ],
@@ -64,7 +70,10 @@ const AdminRoutes = RouterModule.forChild([
         EnumValueConfigAddComponent,
         TechCompleteSuggestionComponent,
         VolumeUnitComponent,
-        CommentTypeComponent
+        CommentTypeComponent,
+        LocalDiagnosesComponent,
+        LocalProceduresComponent,
+        AuthorizationUserStatusesComponent
     ],
     imports: [
         CommonModule,

@@ -11,6 +11,7 @@ import { AccountDto } from "app/dtos/Account.dto";
 import { TaskDto } from "app/dtos/Task.dto";
 import { EntityTypeDto, IEntityTypeDto } from "app/dtos/EntityType.dto";
 import { CommentTypeDto } from "app/dtos/CommentType.dto";
+import { EntityStatus } from "app/dtos/EntityStatus.enum";
 
 export class UserDto implements IUserDto {
     id: number;
@@ -990,13 +991,6 @@ export interface IAccountGenerateIDconfigDto extends IDtoBase {
     guidLen?: number;
     id: number;
     entityStatus: EntityStatus;
-}
-
-export enum EntityStatus {
-    NotModified = 0,
-    Deleted = 1,
-    Added = 2,
-    Modified = 3,
 }
 
 export class AuthorizationAlertDto extends DtoBase implements IAuthorizationAlertDto {

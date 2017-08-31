@@ -1,0 +1,44 @@
+<h1>Local Diagnoses</h1>
+
+<action-bar [commands]="commands"></action-bar>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Code
+            </th>
+            <th>
+                Alert Text
+            </th>
+            <th>
+                Short Description
+            </th>
+            <th>
+                Category
+            </th>
+            <th>
+                Action
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let localDiagnosis of loaclDiagnoses">
+            <td>
+                {{localDiagnosis.code}}
+            </td>
+            <td>
+                {{localDiagnosis.alertText}}
+            </td>
+            <td>
+                {{localDiagnosis.shortDescription}}
+            </td>
+            <td>
+                {{localDiagnosis.stringCategory}}
+            </td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+</table>

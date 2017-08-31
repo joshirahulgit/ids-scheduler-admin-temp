@@ -1,0 +1,44 @@
+<h1>Local Procedures</h1>
+
+<action-bar [commands]="commands"></action-bar>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Code
+            </th>
+            <th>
+                Alert Text
+            </th>
+            <th>
+                Short Description
+            </th>
+            <th>
+                Category
+            </th>
+            <th>
+                Action
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let localProcedure of loaclProcedures">
+            <td>
+                {{localProcedure.code}}
+            </td>
+            <td>
+                {{localProcedure.alertText}}
+            </td>
+            <td>
+                {{localProcedure.shortDescription}}
+            </td>
+            <td>
+                {{localProcedure.stringCategory}}
+            </td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+</table>

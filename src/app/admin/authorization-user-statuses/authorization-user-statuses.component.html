@@ -1,0 +1,35 @@
+<h1>Authorization User Statuses</h1>
+<action-bar [commands]="commands"></action-bar>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Value
+            </th>
+            <th>
+                Default
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of items">
+            <td>
+                {{item.name}}
+            </td>
+            <td>
+                {{item.value}}
+            </td>
+            <td>
+                <input type="radio" name="radiogroup" [checked]="item.isDefault">
+                <!-- <button *ngIf="item.userCanEdit" type="button" class="btn btn-primary btn-sm" (click)="onEditClick(item)"> 
+                                        <i class="fa fa-pencil fa-fw"></i>Edit
+                                </button>
+                <button *ngIf="item.userCanDelete" type="button" class="btn btn-danger btn-sm">
+                                        <i class="fa fa-trash-o fa-fw"></i> Delete</button> -->
+            </td>
+        </tr>
+    </tbody>
+</table>

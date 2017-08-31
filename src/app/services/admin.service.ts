@@ -11,6 +11,8 @@ import { IdsHttpReqOpt } from "app/services/ids-http-request-options.helper";
 import { VolumeUnitDto } from "app/dtos/VolumeUnit.dto";
 import { CommentTypeDto } from "app/dtos/CommentType.dto";
 import { PhysicianTypeDto } from "app/dtos/PhysicianType.dto";
+import { DiagnosisDto } from "app/dtos/Diagnosis.dto";
+import { ProcedureDto } from "app/dtos/Procedure.dto";
 
 @Injectable()
 export class AdminService {
@@ -95,6 +97,28 @@ export class AdminService {
             let items = new Array<PhysicianTypeDto>();
             req.json().forEach(element => {
                 items.push(PhysicianTypeDto.fromJS(element));
+            });
+            return items;
+        });
+    }
+
+    public getLocalDiagnoses(): Observable<Array<DiagnosisDto>> {
+        let url = this._reqOpt.baseUrl + "LocalDiagnosis";
+        return this._http.get(url, this._reqOpt.get()).map((req: Response) => {
+            let items = new Array<DiagnosisDto>();
+            req.json().forEach(element => {
+                items.push(DiagnosisDto.fromJS(element));
+            });
+            return items;
+        });
+    }
+
+    public getLocalProcedures(): Observable<Array<ProcedureDto>> {
+        let url = this._reqOpt.baseUrl + "LocalProcedures";
+        return this._http.get(url, this._reqOpt.get()).map((req: Response) => {
+            let items = new Array<ProcedureDto>();
+            req.json().forEach(element => {
+                items.push(ProcedureDto.fromJS(element));
             });
             return items;
         });
